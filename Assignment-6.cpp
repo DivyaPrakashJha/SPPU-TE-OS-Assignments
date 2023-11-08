@@ -1,5 +1,7 @@
 // Author : Divya Prakash
 
+// Page Replacement Algorithms
+
 #include<bits/stdc++.h>
 
 using namespace std;
