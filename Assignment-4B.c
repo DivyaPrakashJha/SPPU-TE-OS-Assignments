@@ -1,3 +1,7 @@
+// Author : Divya Prakash
+
+// Reader-Writer Problem
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<pthread.h>
