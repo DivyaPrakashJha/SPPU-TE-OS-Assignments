@@ -18,13 +18,12 @@ void* producer(){
             pthread_mutex_lock(&m);
                 int n = random()%10;
                 buff[i++] = n;
-                i%=6;
                 printf("Number %d is added at position %d by producer.\n", n, i-1);
+                i%=6;
             pthread_mutex_unlock(&m);
         sem_post(&full);
         sleep(2);
     }
-
 }
 
 void* consumer(){
@@ -36,8 +35,8 @@ void* consumer(){
         sem_wait(&full);
             pthread_mutex_lock(&m);
                 int key = buff[i++];
-                i%=6;
                 printf("Number %d is consumed from position %d by consumer.\n", key, i-1);
+                i%=6;
             pthread_mutex_unlock(&m);
         sem_post(&empty);
         sleep(2);
