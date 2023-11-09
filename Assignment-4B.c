@@ -12,28 +12,31 @@ sem_t m, wrt;
 
 void* reader(int i){
     printf("Reader %d is created!\n", i);
+    sleep(10);
 
     sem_wait(&m);
         rc++;
-        printf("Reader %d is reading\n", i);
-
         if (rc == 1) sem_wait(&wrt);
     sem_post(&m);
 
+    printf("Reader %d is reading\n", i);
+    sleep(5);
+
     sem_wait(&m);
         rc--;
-        printf("Reader %d has finished reading\n", i);
-
         if (rc == 0) sem_post(&wrt);
     sem_post(&m);
+
+    printf("Reader %d has finished reading\n", i);
 }
 
 void* writer(int i){
     printf("Writer %d is created\n", i);
-    sleep(5);
+    sleep(10);
 
     sem_wait(&wrt);
         printf("Writer %d is writing\n", i);
+        sleep(5);
     sem_post(&wrt);
 
     printf("Writer %d has completed writing\n", i);
