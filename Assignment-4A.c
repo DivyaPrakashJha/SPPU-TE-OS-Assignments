@@ -1,3 +1,7 @@
+// Author : Divya Prakash
+
+// Producer Consumer Problem
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<semaphore.h>
